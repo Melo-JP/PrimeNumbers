@@ -1,9 +1,12 @@
+
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class PrimeNumber {
     private static int num;
 
-      public static void main(String[] args) {
+    public static void main(String[] args) {
 
         Scanner inputNumber = new Scanner(System.in);
         System.out.println("Enter a positive whole number: ");
@@ -37,6 +40,20 @@ public class PrimeNumber {
             }
 
             System.out.println();
-        }   
+        }
+
+        getIteration(num);
     }
- }
+
+    // Calculate the number of iterations
+    private static void getIteration(int num) {
+        int count = 1;
+        while (count < num - 1) {
+            count++;
+        }
+        System.out.println("With 1st method number of iteration is: " + count);
+    }
+}
+
+
+
