@@ -3,12 +3,11 @@ import java.util.Scanner;
 public class PrimeNumber {
     private static int num;
 
-    public static void main(String[] args) {
+      public static void main(String[] args) {
 
         Scanner inputNumber = new Scanner(System.in);
         System.out.println("Enter a positive whole number: ");
         num = inputNumber.nextInt();
-        int[] iterations = new int[400];
 
         boolean flag = false;
         for (int i = 2; i < num; i++) {
@@ -23,13 +22,21 @@ public class PrimeNumber {
         if (!flag) {
             System.out.println(num + " is a prime number and factors are: " + num);
         } else {
-            System.out.println(num + " is a composite number");
-            for (int i = 1; i <= num; i++) {
-                if (num % i == 0) {
+            System.out.println(num + " is a composite number and factors are:");
 
-                    System.out.println("factors are: " + i);
+            //Create a HashSet to store factors
+            Set<Object> primeFactors = new HashSet<>();
+
+            for (int i = 2; i <= num; i++) {
+                if (num % i == 0) {
+                    primeFactors.add(i); // prime factor
                 }
             }
-        }
+            for (Object factor : primeFactors) {
+                System.out.print(factor + ", ");
+            }
+
+            System.out.println();
+        }   
     }
-}
+ }
