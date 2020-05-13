@@ -1,16 +1,17 @@
-
 import java.util.Scanner;
 
 public class PrimeNumber {
+    private static int num;
 
     public static void main(String[] args) {
 
         Scanner inputNumber = new Scanner(System.in);
         System.out.println("Enter a positive whole number: ");
-        int num = inputNumber.nextInt();
+        num = inputNumber.nextInt();
+        int[] iterations = new int[400];
 
         boolean flag = false;
-        for (int i = 2; i < Math.sqrt(num); ++i) {
+        for (int i = 2; i < num; i++) {
 
             // condition for non prime number
             if (num % i == 0) {
@@ -20,9 +21,15 @@ public class PrimeNumber {
         }
 
         if (!flag) {
-            System.out.println(num + " is a prime number.");
+            System.out.println(num + " is a prime number and factors are: " + num);
         } else {
-            System.out.println(num + " is a composite number.");
+            System.out.println(num + " is a composite number");
+            for (int i = 1; i <= num; i++) {
+                if (num % i == 0) {
+
+                    System.out.println("factors are: " + i);
+                }
+            }
         }
     }
 }
